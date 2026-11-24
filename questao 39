@@ -1,0 +1,38 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+
+int main(int argc, char *argv[]) {
+	float venda;
+    float faturamento = 0;
+    float media;
+    int quantidade = 0;
+
+    printf("Digite o valor da venda (0 para encerrar): ");
+    scanf("%f", &venda);
+
+    while (venda != 0) {
+
+        if (venda > 0) {
+            faturamento = faturamento + venda;
+            quantidade++;
+        } else {
+            printf("Valor negativo ignorado!\n");
+        }
+
+        printf("Digite outra venda (0 para encerrar): ");
+        scanf("%f", &venda);
+    }
+
+    printf("\nQuantidade de vendas: %d\n", quantidade);
+    printf("Faturamento: R$ %.2f\n", faturamento);
+
+    if (quantidade > 0) {
+        media = faturamento / quantidade;
+        printf("Ticket medio: R$ %.2f\n", media);
+    } else {
+        printf("Nenhuma venda realizada.\n");
+    }
+	return 0;
+}
